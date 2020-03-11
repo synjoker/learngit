@@ -1,0 +1,22 @@
+sudo dpkg -i cocomusic_2.0.4_amd64.deb
+
+sudo apt remove sogoupinyin
+
+源码安装
+./configure,make,make install,make clean的作用
+https://blog.csdn.net/u010069213/article/details/18415807?depth_1-utm_source=distribute.pc_relevant.none-task&utm_source=distribute.pc_relevant.none-task
+
+https://blog.51cto.com/wangqiyong/367049
+1、  Tar：解压这个源码软件包。
+2、  Cd：进入到这个源码包。
+3、  ./configure：“configure”会在你的系统上测试存在的特性(或者bug!)然后来建立Makefile文件来完成make！
+./configure --prefix=/软件要安装的路径.但是我们也可以直接./configure而不指定路径，通常通过从源码包编译安装的软件默认路径都是/usr/local/,编译时使用的动态链接库的路径，默认情况下编译器只会使用/lib和/usr/lib这两个目录下的库文件。
+/etc/ld.so.conf:安装了其他的库，那么安装完成后就在/etc/ld.so.conf把这个库文件中的绝对路径写进去
+ldconfig:将/etc/ld.so.conf中的路径缓存到/etc/ld.so.cache中，运行一下/sbin/ldconfig
+4、  Make：编译程序。make结束的时候通过一条命令来检查是否成功编译：echo  $? 输出的结果是0，那么就说明成功编译
+gcc个版本之间存在着差异
+缺少.h文件
+5、  Make install：安装文件！
+
+make clean z作用是删除一些临时文件
+有些软件要先运行make check 或make test来进行测试，这一步一般需要你有root权限。）
